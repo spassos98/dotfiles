@@ -106,10 +106,12 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # Custom config
-
+alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 export PATH=/home/spassos/.local/bin:$PATH
 
 eval "$(starship init bash)"
 eval "setxkbmap -option caps:none"
+
+
 
 neofetch
