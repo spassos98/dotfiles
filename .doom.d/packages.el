@@ -51,3 +51,4 @@
 
 (package! evil-tutor)
 (package! omnisharp)
+(package! org-superstar)

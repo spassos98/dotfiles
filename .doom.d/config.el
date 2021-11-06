@@ -3,8 +3,8 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
-(setq doom-font (font-spec :family "Mononoki Nerd Font" :size 15)
-      doom-variable-pitch-font (font-spec :family "Mononoki Nerd Font" :size 15))
+(setq doom-font (font-spec :family "Mononoki Nerd Font" :size 17)
+      doom-variable-pitch-font (font-spec :family "Mononoki Nerd Font" :size 17))
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "John Doe"
@@ -71,3 +71,20 @@
                100)
           '(92 . 90) '(100 . 100)))))
  (global-set-key (kbd "C-c c") 'toggle-transparency)
+
+;; Hotfix for org error
+(defun native-comp-available-p () nil)
+
+;; Improve org mode looks
+(setq org-startup-indented t
+      org-pretty-entities t
+      org-hide-emphasis-markers t
+      org-startup-with-inline-images t
+      org-image-actual-width '(300))
+
+;; Nice bullets
+(use-package org-superstar
+    :config
+    (setq org-superstar-special-todo-items t)
+    (add-hook 'org-mode-hook (lambda ()
+                               (org-superstar-mode 1))))
