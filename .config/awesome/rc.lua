@@ -105,10 +105,10 @@ local themes = {
 local chosen_theme = themes[7]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
-local terminal     = "x-terminal-emulator"
+local terminal     = "alacritty"
 local vi_focus     = false -- vi-like client focus https://github.com/lcpz/awesome-copycats/issues/275
 local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
-local editor       = os.getenv("EDITOR") or "emacs"
+local editor       = "emacs"
 local browser      = "firefox"
 local file_manager = "nemo"
 
@@ -533,8 +533,14 @@ globalkeys = mytable.join(
                     history_path = awful.util.get_cache_dir() .. "/history_eval"
                   }
               end,
-              {description = "lua execute prompt", group = "awesome"})
+              {description = "lua execute prompt", group = "awesome"}),
     --]]
+
+    -- Emacs as emacs client
+    awful.key({ modkey },            "0",     function ()
+        awful.util.spawn("emacsclient -c -a 'emacs'") end,
+                 {description = "run emacs", group = "launcher"})
+
 )
 
 clientkeys = mytable.join(
@@ -786,7 +792,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 autorun = true
 autorunApps = {
   "compton",
-  "gnome-terminal",
+  "alacritty",
   "spotify"
 }
 
