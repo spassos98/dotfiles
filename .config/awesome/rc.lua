@@ -111,6 +111,7 @@ local cycle_prev   = true  -- cycle with only the previously focused client or a
 local editor       = "emacs"
 local browser      = "firefox"
 local file_manager = "nemo"
+local email_manager = "mailspring"
 
 -- Set english and spanish layout
 -- See https://gist.github.com/jatcwang/ae3b7019f219b8cdc6798329108c9aee for a list of layouts
@@ -422,6 +423,10 @@ globalkeys = mytable.join(
               {description = "increase master width factor", group = "layout"}),
     awful.key({ modkey, altkey    }, "h",     function () awful.tag.incmwfact(-0.05)          end,
               {description = "decrease master width factor", group = "layout"}),
+    awful.key({ modkey, altkey    }, "k",     function () awful.client.incwfact(0.05)       end,
+              {description = "increase master height factor", group = "layout"}),
+    awful.key({ modkey, altkey    }, "j",     function () awful.client.incwfact(-0.05)       end,
+              {description = "decrease master height factor", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
               {description = "increase the number of master clients", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,
@@ -518,6 +523,9 @@ globalkeys = mytable.join(
     -- User programs
     awful.key({ modkey }, "p", function () awful.spawn(file_manager) end,
               {description = "open file manager", group = "launcher"}),
+
+    awful.key({ modkey }, "e", function () awful.spawn(email_manager) end,
+              {description = "open email manager", group = "launcher"}),
 
     -- Dmenu
     awful.key({ modkey },            "r",     function () 

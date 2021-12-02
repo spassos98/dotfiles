@@ -107,11 +107,11 @@ fi
 
 # Custom config
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias capitao_whatsapp='mplayer -vo caca $HOME/cwpp.mp4'
 export PATH=/home/spassos/.local/bin:$PATH
 
 eval "$(starship init bash)"
 eval "setxkbmap -option caps:none"
-
 
 
 neofetch
