@@ -108,10 +108,20 @@ fi
 # Custom config
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias capitao_whatsapp='mplayer -vo caca $HOME/cwpp.mp4'
+alias verifiably='cd ~/workplace/verifiably/VerifiablyAccessBackend'
+alias compileTS='pnpm run build'
+alias zipTS='zip --symlinks dist.zip -r index.js node_modules/'
+alias connectHostServer='ssh -i ec2.pem ec2-user@ec2-18-191-39-139.us-east-2.compute.amazonaws.com'
+alias connectDevServer='ssh -i ec2.pem ec2-user@ec2-18-222-34-156.us-east-2.compute.amazonaws.com'
 export PATH=/home/spassos/.local/bin:$PATH
+
 
 eval "$(starship init bash)"
 eval "setxkbmap -option caps:none"
 
 
 neofetch
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
